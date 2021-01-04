@@ -1,0 +1,23 @@
+{
+  "name": "lzj-template",
+  "version": "1.0.1",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template"
+  ],
+  "description": "The base template for Create React App.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MR-liu/lzj-template.git",
+    "directory": "packages/lzj-template"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}
