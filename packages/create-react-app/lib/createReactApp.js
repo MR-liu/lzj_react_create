@@ -46,7 +46,7 @@ async function createApp(appName){//projectName=appName
  */
 async function run(root,appName,originalDirectory){
     let scriptName = 'react-scripts';//create生成的代码里 源文件编译，启动服务放在了react-scripts
-    let templateName = 'cra-template';
+    let templateName = 'lzj-template';
 
     const allDependencies = ['react', 'react-dom', scriptName, templateName];
 
