@@ -45,7 +45,7 @@ async function createApp(appName){//projectName=appName
  * @param {*} originalDirectory 原来的工作目录  C:\aproject\create-react-app2
  */
 async function run(root,appName,originalDirectory){
-    let scriptName = 'react-scripts';//create生成的代码里 源文件编译，启动服务放在了react-scripts
+    let scriptName = 'lzj-pack';//create生成的代码里 源文件编译，启动服务放在了react-scripts
     let templateName = 'lzj-template';
 
     const allDependencies = ['react', 'react-dom', scriptName, templateName];
@@ -63,10 +63,11 @@ async function run(root,appName,originalDirectory){
     //项目根目录  项目的名字 verbose是否显示详细信息 原始的目录 模板名称cra-template
     let data = [root, appName, true, originalDirectory, templateName];
     let source = `
-    var init = require('react-scripts/scripts/init.js');
+    var init = require('lzj-pack/scripts/init.js');
     init.apply(null, JSON.parse(process.argv[1]));
     `;
     await executeNodeScript({cwd:process.cwd()}, data, source);
+
     console.log('Done.');
     process.exit(0);
 }

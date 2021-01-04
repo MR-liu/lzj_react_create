@@ -1,0 +1,1 @@
+通用基础能力层，面向上层模块提供如日志调用能力（Logger）、数据打点能力（DataCollector）、应用数据存储能力（Storage）
