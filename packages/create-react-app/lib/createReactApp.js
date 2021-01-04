@@ -58,7 +58,7 @@ async function run(root,appName,originalDirectory){
         )}, and ${chalk.cyan(scriptName)}${` with ${chalk.cyan(templateName)}`}...`
       );
 
-    await install(root,allDependencies);
+    await install(root, allDependencies);
 
     //项目根目录  项目的名字 verbose是否显示详细信息 原始的目录 模板名称cra-template
     let data = [root, appName, true, originalDirectory, templateName];
