@@ -45,7 +45,7 @@ async function createApp(appName){//projectName=appName
  * @param {*} originalDirectory 原来的工作目录  C:\aproject\create-react-app2
  */
 async function run(root,appName,originalDirectory){
-    let scriptName = 'lzj-pack';//create生成的代码里 源文件编译，启动服务放在了react-scripts
+    let scriptName = 'lzj-react-pack';//create生成的代码里 源文件编译，启动服务放在了react-scripts
     let templateName = 'lzj-template';
 
     const allDependencies = ['react', 'react-dom', scriptName, templateName];
