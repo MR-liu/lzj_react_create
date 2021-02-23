@@ -1,13 +1,25 @@
 {
   "name": "lzj-react-pack",
-  "version": "0.0.1",
-  "bin": {
-    "lzj-pack": "bin/lzj-react-pack.js"
-  },
-  "main": "index.js",
-  "repository": "https://github.com/MR-liu/lzj-react-pack.git",
+  "version": "0.0.0",
+  "description": "> TODO: description",
   "author": "刘泽锦 <liuzejin@zhongan.com>",
-  "license": "MIT",
+  "homepage": "https://github.com/MR-liu/lzj_react_create#readme",
+  "license": "ISC",
+  "main": "bin/lzj-react-pack.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MR-liu/lzj_react_create.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
@@ -32,5 +44,8 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.0.0-beta.6"
+  },
+  "bugs": {
+    "url": "https://github.com/MR-liu/lzj_react_create/issues"
   }
 }
