@@ -63,7 +63,7 @@ async function run(root,appName,originalDirectory){
     //项目根目录  项目的名字 verbose是否显示详细信息 原始的目录 模板名称cra-template
     let data = [root, appName, true, originalDirectory, templateName];
     let source = `
-    var init = require('lzj-pack/scripts/init.js');
+    var init = require('lzj-react-pack/services/init.js');
     init.apply(null, JSON.parse(process.argv[1]));
     `;
     await executeNodeScript({cwd:process.cwd()}, data, source);

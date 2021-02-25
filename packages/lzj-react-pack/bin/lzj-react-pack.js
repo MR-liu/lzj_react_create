@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../sessions/index');
+require('lzj-react-pack/sessions/index');
