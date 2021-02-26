@@ -4,6 +4,7 @@ const paths = require('../config/paths');
 const { merge } = require('webpack-merge');
 const getProxyMiddlewares = require('../config/getProxyMiddlewares')
 const devServer = require('./devServer.config')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const common = require('./webpack.common')();
 
@@ -31,5 +32,8 @@ module.exports = merge(common, {
   devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'style.[contenthash].css' // 开发环境：style.css即可
+    }),
   ]
 });
