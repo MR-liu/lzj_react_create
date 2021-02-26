@@ -1,5 +1,5 @@
 {
-  "name": "lzj-react-pack",
+  "name": "lzj-pack",
   "version": "0.0.1",
   "bin": {
     "lzj-pack": "bin/lzj-react-pack.js"
