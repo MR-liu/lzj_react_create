@@ -5,4 +5,8 @@ const chalk = require('chalk');
 const clear = require('clear');
 
 const paths = require('../config/paths');
-const createDevServerConfig = require('../');
+// const createDevServerConfig = require('../');
+
+module.exports = async () => {
+  console.log('load build')
+}
