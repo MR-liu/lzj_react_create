@@ -99,7 +99,7 @@ module.exports = function (
   const templateScripts = templatePackage.scripts || {};
   appPackage.scripts = Object.assign(
     {
-      start: 'lzj-react-pack start',
+      start: 'lzj-react-pack server',
       build: 'lzj-react-pack build',
     },
     templateScripts
@@ -277,7 +277,7 @@ module.exports = function (
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log('Inside that directory, you can run several commands:');
   console.log();
-  console.log(chalk.cyan(`  ${displayedCommand} start`));
+  console.log(chalk.cyan(`  ${displayedCommand} server`));
   console.log('    Starts the development server.');
   console.log();
   console.log(

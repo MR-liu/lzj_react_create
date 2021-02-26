@@ -1,7 +1,9 @@
+import React from 'react';
+
 function App() {
   return (
     <div className="App">
-      APP
+      base react app
     </div>
   );
 }
