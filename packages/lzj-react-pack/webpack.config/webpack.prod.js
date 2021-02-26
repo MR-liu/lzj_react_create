@@ -3,7 +3,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { merge } = require('webpack-merge');
 
-const common = require('./webpack.common');
+const common = require('./webpack.common')();
 const paths = require('../config/paths');
 
 module.exports = merge(common, {

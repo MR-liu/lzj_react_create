@@ -5,9 +5,9 @@ const { merge } = require('webpack-merge');
 const getProxyMiddlewares = require('../config/getProxyMiddlewares')
 const devServer = require('./devServer.config')
 
-const common = require('./webpack.common');
+const common = require('./webpack.common')();
 
-module.exports = merge(common('development'), {
+module.exports = merge(common, {
   mode: 'development',
   output: {
     filename: 'static/js/bundle.js',
