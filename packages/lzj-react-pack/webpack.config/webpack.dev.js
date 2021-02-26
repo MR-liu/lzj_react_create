@@ -23,6 +23,7 @@ module.exports = merge(common, {
   optimization: {
     minimize: false,
   },
+  target: 'web',
   cache: { // 持久化
     type: 'filesystem', // memory filesystem
     cacheDirectory: paths.appCache,
