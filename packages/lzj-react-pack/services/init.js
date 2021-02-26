@@ -99,7 +99,7 @@ module.exports = function (
   const templateScripts = templatePackage.scripts || {};
   appPackage.scripts = Object.assign(
     {
-      start: 'lzj-react-pack server',
+      server: 'lzj-react-pack server',
       build: 'lzj-react-pack build',
     },
     templateScripts
@@ -294,7 +294,7 @@ module.exports = function (
   console.log('We suggest that you begin by typing:');
   console.log();
   console.log(chalk.cyan('  cd'), cdpath);
-  console.log(`  ${chalk.cyan(`${displayedCommand} start`)}`);
+  console.log(`  ${chalk.cyan(`${displayedCommand} server`)}`);
   if (readmeExists) {
     console.log();
     console.log(
