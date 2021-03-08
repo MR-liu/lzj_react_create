@@ -225,6 +225,7 @@ module.exports = function (
     args = args.concat(['react', 'react-dom']);
   }
 
+  console.log('args', args);
   // Install template dependencies, and react and react-dom if missing.
   if ((!isReactInstalled(appPackage) || templateName) && args.length > 1) {
     console.log();
