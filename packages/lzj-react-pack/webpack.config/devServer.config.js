@@ -2,14 +2,14 @@ const paths = require('../config/paths');
 const proxySetting = require(paths.appPackageJson).proxy;
 const choosePort = require('../lib/chooseport');
 
-module.exports = () => {
+module.exports = async() => {
     const port = require(paths.appPackageJson).port || 8001;
     const _port = await choosePort(port);
 
     return {
         proxy: proxySetting,
         historyApiFallback: true,
-        contentBase: path.join(__dirname, '../public'),
+        contentBase: paths.appPublic,
         hot: true,
         open: false,
         quiet: true,
