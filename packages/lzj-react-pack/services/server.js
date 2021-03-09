@@ -14,8 +14,8 @@ const WebpackDevServer = require('webpack-dev-server');
 
 const paths = require('../config/paths');
 const config = require('../webpack.config/webpack.dev');
-const choosePort = require('../lib/chooseport');
 const runCLI = require('webpack-cli/lib/bootstrap');
+const devServer = require('../webpack.config/devServer.config')();
 
 module.exports = async() => {
     // const compiler = createCompiler({
@@ -30,25 +30,25 @@ module.exports = async() => {
     // });
 
     // console.log(config);
+    config.devServer = devServer;
 
     const compiler = webpack(config, (err) => {
         err && console.log(chalk.cyan(err));
     });
 
-    const devServerConfig = {
-        historyApiFallback: true,
-        contentBase: path.join(__dirname, '../public'),
-        open: false,
-        hot: true,
-        quiet: true,
-    };
+    // const devServerConfig = {
+    //     historyApiFallback: true,
+    //     contentBase: path.join(__dirname, '../public'),
+    //     open: false,
+    //     hot: true,
+    //     quiet: true,
+    // };
 
 
-    const devServer = new WebpackDevServer(compiler, devServerConfig);
+    // const devServer = new WebpackDevServer(compiler, devServerConfig);
 
-    const port = require(paths.appPackageJson).port || 8001;
-    const _port = await choosePort(port);
-    const HOST = process.env.HOST || '0.0.0.0';
+
+    // const HOST = process.env.HOST || '0.0.0.0';
 
     runCLI([
         process.argv[0],
