@@ -7,21 +7,15 @@ module.exports = async() => {
     const _port = await choosePort(port);
 
     return {
+        compress: true,
+        contentBase: paths.build,
         proxy: proxySetting,
         historyApiFallback: true,
         contentBase: paths.appPublic,
         hot: true,
-        open: false,
+        open: true,
         quiet: true,
         port: _port,
-        // before: function(app, server, compiler) {
-        //     console.log(proxySetting, require(paths.appPackageJson));
-        //     if (proxySetting) {
-        //         getProxyMiddlewares(proxySetting)
-        //     }
-        //     app.get('/some/path', function(req, res) {
-        //         res.json({ custom: 'response' });
-        //     });
-        // }
+        clientLogLevel: 'silent'
     }
 };

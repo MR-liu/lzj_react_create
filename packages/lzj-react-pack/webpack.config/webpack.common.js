@@ -1,14 +1,26 @@
 // webpack.common.js
-// const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
 
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const friendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 const paths = require('../config/paths');
+
+const babelLoader = {
+  loader: 'babel-loader',
+  options: {
+    presets: ['@babel/preset-env', '@babel/preset-react'],
+    plugins: [
+      '@babel/plugin-syntax-dynamic-import',
+      '@babel/plugin-proposal-class-properties'
+    ]
+  }
+}
 
 module.exports = function(){
   return {
@@ -16,8 +28,21 @@ module.exports = function(){
       app: paths.appSrc,
     },
     output: {
+      path: paths.build,
+      filename: 'js/[name].bundle.js',
       publicPath: paths.publicUrlOrPath,
+      clean: true,
+      crossOriginLoading: 'anonymous',
+      module: true,
       globalObject: 'this',
+      environment: {
+        arrowFunction: true,
+        bigIntLiteral: false,
+        const: true,
+        destructuring: true,
+        dynamicImport: false,
+        forOf: true
+      }
     },
     optimization: {
       usedExports: true, // 标使用到的导出
@@ -61,6 +86,11 @@ module.exports = function(){
         '@/utils': paths.appUtils,
         '@': paths.appSrc,
       },
+      extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json']
+    },
+    experiments: {
+      topLevelAwait: true,
+      outputModule: true
     },
     module: {
       strictExportPresence: true, // 将缺失的导出提示成错误而不是警告
@@ -69,33 +99,27 @@ module.exports = function(){
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-env', // es6 -> es5
-                '@babel/preset-react' // react
-              ]
-            },
-          },
+          use: babelLoader,
         },
         {
           test: /\.(tsx|ts)?$/,
-          use: 'ts-loader',
           exclude: /node_modules/,
+          use: [babelLoader, 'ts-loader'],
         },
         {
-          test: /\.(scss|css)$/,
+          test: /\.(c|sa|sc)ss$/i,
           use: [
             'style-loader',
             {
               loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-              },
+              options: { importLoaders: 1 }
             },
-            'postcss-loader',
-          ],
+            'sass-loader'
+          ]
+        },
+        {
+          test: /\.md$/i,
+          use: ['html-loader', 'markdown-loader']
         },
         {
           test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
@@ -125,23 +149,26 @@ module.exports = function(){
       ],
     },
     plugins: [
+      new webpack.ProgressPlugin(),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: paths.appAsset,
+          }
+        ]
+      }),
       new HtmlWebpackPlugin({
         title: '',
         template: paths.appHtml,
         filename: 'index.html',
       }),
       new friendlyErrorsWebpackPlugin(),
+      new webpack.ProvidePlugin({
+        React: 'react'
+      }),
+      new Dotenv({
+        path: '../config/.env'
+      })
     ],
-    // node: {
-    //   module: 'empty',
-    //   dgram: 'empty',
-    //   dns: 'mock',
-    //   fs: 'empty',
-    //   http2: 'empty',
-    //   net: 'empty',
-    //   tls: 'empty',
-    //   child_process: 'empty',
-    // },
-    // performance: false,
   };  
 }

@@ -27,6 +27,26 @@ const argv = require('yargs')
   }, (argv) => {
     require('../services/build')(argv);
   })
+  .command('pwa [config]', 'PWA生产模式', (yargs) => {
+    yargs
+      .positional('', {
+        describe: 'loading pwa config',
+        type: 'string',
+        default: 'loading'
+      })
+  }, (argv) => {
+    require('../services/pwa')(argv);
+  })
+  .command('analyze [config]', 'analyze模式', (yargs) => {
+    yargs
+      .positional('port', {
+        describe: 'port to bind on',
+        type: 'string',
+        default: 8080
+      })
+  }, (argv) => {
+    require('../services/analyze')(argv);
+  })
   .option('verbose', {
     alias: 'v',
     type: 'boolean',

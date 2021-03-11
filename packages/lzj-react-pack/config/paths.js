@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+const resolveConfigApp = relativePath => path.resolve(__dirname, relativePath);
 
 
 const moduleFileExtensions = [
@@ -53,5 +54,10 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   appCache: resolveApp('node_modules/.cache/webpack'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
+  appDevConfig: resolveConfigApp('../webpack.config/webpack.dev'),
+  analyzeConfig: resolveConfigApp('../webpack.config/webpack.analyze'),
+  pwaConfig: resolveConfigApp('../webpack.config/webpack.pwa'),
+  pwaJs: resolveModule(resolveApp, 'public/sw-reg'),
+  appAsset: resolveApp('public/asset'),
   // publicUrlOrPath,
 };

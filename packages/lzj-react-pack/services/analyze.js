@@ -18,10 +18,10 @@ module.exports = async() => {
     runCLI([
         process.argv[0],
         process.argv[1],
-        'serve',
+        '--analyze',
         '-c',
-        paths.appDevConfig
+        paths.analyzeConfig
     ], originalModuleCompile);
 
-    console.log(chalk.cyan('Starting the development server...\n'));
+    console.log(chalk.cyan('Starting the analyze server...\n'));
 }
