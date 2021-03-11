@@ -1,20 +1,28 @@
 
-const {Command} = require('commander');
+const { Command } = require('commander');
 const chalk = require('chalk');
 const path = require('path');
 const packageJSON = require('../package.json');
 const fs = require('fs-extra');
 const spawn = require('cross-spawn');
+
+let scriptName = 'lzj-react-pack'; //create生成的代码里 源文件编译，启动服务放在了react-scripts
+let templateName = 'lzj-template';
+
 async function init(){
    let projectName;
    new Command(packageJSON.name)//项目名
-   .version(packageJSON.version)//版本号
-   .arguments('<project-directory>')//项目的目录名
-   .usage(`${chalk.green('<project-directory>')}`)
-   .action((name)=>{
-     projectName=name;
-   }).parse(process.argv)//[node完整路径,当前node脚本的路径,...其它参数]
-   console.log('projectName',projectName);
+    .version(packageJSON.version)//版本号
+    .arguments('<project-directory>')//项目的目录名
+    .usage(`${chalk.green('<project-directory>')}`)
+    .option('-t --template [template]', 'lzj-simple-react-template')
+    .action((name, other)=>{
+        projectName=name;
+        if (other.template) {
+            templateName = other.template;
+        }
+    }).parse(process.argv)//[node完整路径,当前node脚本的路径,...其它参数]
+
    await createApp(projectName);
 }
 
@@ -45,9 +53,6 @@ async function createApp(appName){//projectName=appName
  * @param {*} originalDirectory 原来的工作目录  C:\aproject\create-react-app2
  */
 async function run(root,appName,originalDirectory){
-    let scriptName = 'lzj-react-pack';//create生成的代码里 源文件编译，启动服务放在了react-scripts
-    let templateName = 'lzj-template';
-
     const allDependencies = ['react', 'react-dom', scriptName, templateName];
 
     console.log('Installing packages. This might take a couple of minutes.');
