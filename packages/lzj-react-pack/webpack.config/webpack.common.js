@@ -150,7 +150,7 @@ module.exports = function(){
     },
     plugins: [
       new webpack.ProgressPlugin(),
-      new CopyWebpackPlugin({
+      !!paths.appAsset && new CopyWebpackPlugin({
         patterns: [
           {
             from: paths.appAsset,
