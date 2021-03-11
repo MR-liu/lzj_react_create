@@ -1,5 +1,5 @@
 {
-  "name": "simple-react-template",
+  "name": "lzj-simple-react-template",
   "version": "0.1.4",
   "description": "This is the official base template for [Create React App](https://github.com/facebook/create-react-app).",
   "author": "刘泽锦 <liuzejin@zhongan.com>",
@@ -22,5 +22,6 @@
   },
   "bugs": {
     "url": "https://github.com/MR-liu/lzj_react_create/issues"
-  }
+  },
+  "gitHead": "507296604cae6594b5a58979d4c061728efb80b7"
 }
