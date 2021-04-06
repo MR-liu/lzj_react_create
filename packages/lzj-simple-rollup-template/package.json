@@ -1,18 +1,20 @@
 {
-  "name": "--libraryname--",
-  "version": "0.1.7-alpha.1",
-  "description": "",
-  "keywords": [],
-  "main": "dist/--libraryname--.umd.js",
-  "module": "dist/--libraryname--.es5.js",
-  "typings": "dist/types/--libraryname--.d.ts",
+  "name": "lzj-simple-rollup-template",
+  "version": "0.1.7",
+  "description": "lzj-simple-rollup-template",
+  "author": "刘泽锦 <liuzejin@zhongan.com>",
+  "homepage": "https://github.com/MR-liu/lzj_react_create#readme",
+  "main": "",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
   "files": [
-    "dist"
+    "lib"
   ],
-  "author": "--username-- <--usermail-->",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/MR-liu/lzj_react_create.git"
   },
   "license": "MIT",
   "engines": {
@@ -117,5 +119,6 @@
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.12.0",
     "typescript": "^3.0.3"
-  }
+  },
+  "gitHead": "380a2ac5bfb6ae0e5d156e0ffaee4167d657164d"
 }
