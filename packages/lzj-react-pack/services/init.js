@@ -101,6 +101,8 @@ module.exports = function (
     {
       server: 'lzj-react-pack server',
       build: 'lzj-react-pack build',
+      pwa: 'lzj-react-pack pwa',
+      analyze: 'lzj-react-pack analyze',
     },
     templateScripts
   );

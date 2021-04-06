@@ -1,7 +1,6 @@
 // webpack.prod.js
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const ImageminPlugin = require('imagemin-webpack-plugin').default
 const { merge } = require('webpack-merge');
 
 const common = require('./webpack.common')();
@@ -24,10 +23,6 @@ module.exports = merge(common, {
       filename: 'css/[name].[contenthash].css',
       chunkFilename: '[id].css'
     }),
-
-    new ImageminPlugin({
-      test: /\.(jpe?g|png|gif|svg)$/i
-    })
   ],
   optimization: {
     runtimeChunk: 'single'
