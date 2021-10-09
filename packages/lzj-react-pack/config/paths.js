@@ -59,5 +59,5 @@ module.exports = {
   pwaConfig: resolveConfigApp('../webpack.config/webpack.pwa'),
   pwaJs: resolveModule(resolveApp, 'public/sw-reg'),
   appAsset: resolveApp('public/asset'),
-  // publicUrlOrPath,
+  publicUrlOrPath: resolveApp('package.json').publicPath || '',
 };
