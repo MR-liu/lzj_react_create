@@ -23,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/MR-liu/lzj_react_create/issues"
   },
-  "gitHead": "507296604cae6594b5a58979d4c061728efb80b7"
+  "gitHead": "507296604cae6594b5a58979d4c061728efb80b7",
+  "devDependencies": {
+    "@lzj-cli-dev/fabric": "^1.0.4",
+    "eslint": "^7.32.0",
+    "prettier": "^2.4.1",
+    "stylelint": "^13.13.1"
+  }
 }
