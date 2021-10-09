@@ -1,17 +1,17 @@
 {
   "name": "lzj-simple-react-template",
   "version": "0.1.7-alpha.3",
-  "description": "zj-simple-react-template",
+  "description": "lzj-simple-react-template",
   "author": "刘泽锦 <liuzejin@zhongan.com>",
   "homepage": "https://github.com/MR-liu/lzj_react_create#readme",
   "license": "ISC",
-  "main": "lib/simple-react-template.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "template",
+    "template.json"
   ],
   "repository": {
     "type": "git",
