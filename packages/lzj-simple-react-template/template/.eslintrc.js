@@ -1,9 +1,6 @@
 module.exports = {
   extends: [require.resolve('@lzj-cli-dev/fabric/lib/eslint')],
-
-  // in antd-design-pro
   globals: {
-    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: true,
     page: true,
   },
 

@@ -28,6 +28,7 @@
     "@lzj-cli-dev/fabric": "^1.0.4",
     "eslint": "^7.32.0",
     "prettier": "^2.4.1",
-    "stylelint": "^13.13.1"
+    "stylelint": "^13.13.1",
+    "typescript": "^4.4.3"
   }
 }

@@ -7,7 +7,7 @@ const fs = require('fs-extra');
 const spawn = require('cross-spawn');
 
 let scriptName = 'lzj-react-pack'; //create生成的代码里 源文件编译，启动服务放在了react-scripts
-let templateName = 'lzj-template';
+let templateName = 'lzj-simple-react-template';
 
 async function init(){
    let projectName;
