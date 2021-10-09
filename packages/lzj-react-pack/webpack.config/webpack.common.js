@@ -34,7 +34,7 @@ module.exports = function(){
       clean: true,
       crossOriginLoading: 'anonymous',
       module: true,
-      globalObject: 'this',
+      // globalObject: 'this',
       environment: {
         arrowFunction: true,
         bigIntLiteral: false,
