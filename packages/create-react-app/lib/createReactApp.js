@@ -90,9 +90,17 @@ async function executeNodeScript({cwd}, data, source){
 
 async function install(root, allDependencies){
     return new Promise(resolve => {
+        console.log('use yarn');
         const command = 'yarnpkg';
         const args = ['add', '--exact', ...allDependencies, '--cwd', root];
-        console.log(command, args);
+
+        const child = spawn(command, args, { stdio: 'inherit' });
+        child.on('close', resolve);
+    }).catch(e => {
+        console.log('use npm');
+        const command = 'npm';
+        const args = ['install', '--exact', ...allDependencies, '--cwd', root];
+
         const child = spawn(command, args, { stdio: 'inherit' });
         child.on('close', resolve);
     });
