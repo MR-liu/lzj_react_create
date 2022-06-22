@@ -1,0 +1,23 @@
+{
+  "name": "lzj-simple-rollup-typescript-template",
+  "version": "0.0.2",
+  "keywords": [
+    "rollup",
+    "typescript"
+  ],
+  "description": "The base template for Create rollup with typescript.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MR-liu/lzj-template.git",
+    "directory": "packages/lzj-simple-rollup-typescript-template"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ],
+  "gitHead": "9484b02b034b09351fc75e60eff22ba36e3b4a3c"
+}
