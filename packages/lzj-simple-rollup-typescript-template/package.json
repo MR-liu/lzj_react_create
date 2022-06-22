@@ -6,6 +6,11 @@
     "typescript",
     "template"
   ],
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.d.ts src/",
+    "build": "rimraf dist && rollup -c rollup.config.js --environment NODE_ENV:production",
+    "dev": "rimraf dist && rollup -c rollup.config.js --environment NODE_ENV:development"
+  },
   "description": "The base template for Create rollup with typescript.",
   "repository": {
     "type": "git",

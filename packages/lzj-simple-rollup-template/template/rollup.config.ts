@@ -7,6 +7,7 @@ import json from 'rollup-plugin-json'
 
 const pkg = require('./package.json')
 
+
 const libraryName = '--libraryname--'
 
 export default {
