@@ -120,9 +120,9 @@ module.exports = function (
   }
 
   // Setup the eslint config
-  appPackage.eslintConfig = {
-    extends: 'react-app',
-  };
+  // appPackage.eslintConfig = {
+  //   extends: 'react-app',
+  // };
 
   // Setup the browsers list
   appPackage.browserslist = defaultBrowsers;
@@ -247,12 +247,12 @@ module.exports = function (
   }
 
   // Remove template
-  // console.log(`Removing template package using ${command}...`);
-  // console.log();
+  console.log(`Removing template package using ${command}...`);
+  console.log();
 
-  // const proc = spawn.sync(command, [remove, templateName], {
-  //   stdio: 'inherit',
-  // });
+  const proc = spawn.sync(command, [remove, templateName], {
+    stdio: 'inherit',
+  });
   // if (proc.status !== 0) {
   //   chalk.yellow(`\`${command} ${args.join(' ')}\` failed`)
   // }
@@ -285,14 +285,6 @@ module.exports = function (
   console.log();
   console.log(chalk.cyan('  cd'), cdpath);
   console.log(`  ${chalk.cyan(`${displayedCommand} build`)}`);
-  if (readmeExists) {
-    console.log();
-    console.log(
-      chalk.yellow(
-        'You had a `README.md` file, we renamed it to `README.old.md`'
-      )
-    );
-  }
   console.log();
   console.log('Happy hacking!');
 };
