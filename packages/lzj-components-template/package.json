@@ -1,0 +1,24 @@
+{
+  "name": "lzj-components-template",
+  "version": "0.1.7-alpha.0",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template"
+  ],
+  "description": "The base template for Create React App.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MR-liu/lzj-components-template.git",
+    "directory": "packages/lzj-components-template"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ],
+  "gitHead": "9484b02b034b09351fc75e60eff22ba36e3b4a3c"
+}
