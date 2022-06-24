@@ -1,22 +1,22 @@
 const path = require('path');
-//提取CSS文件的
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-//当前命令所在的目录
+
 const cwd = process.cwd();
 module.exports = {
-    mode: 'development',//开发模式
-    devtool: false,//关闭生成sourcemap
+    mode: 'development',
+    devtool: false,
     entry: {
         up1: './index.js',
     },
     output: {
-        path: path.resolve('dist'),//输出到dist目录
-        filename: '[name].js',//打包后的文件
-        library: 'up-components',//打包后库的名字
-        libraryTarget: 'umd',//打包后模块的格式 umd amd cmd commonjs commonjs window
+        path: path.resolve('dist'),
+        filename: '[name].js',
+        library: 'up-components',
+        libraryTarget: 'umd',
     },
-    externals: {//组件库代码其实是不需要打包react 和react-dom进去的
-        react: {//外部依赖
+    externals: {
+        react: {
             root: 'React',
             commonjs2: 'react',
             commonjs: 'react',
@@ -30,12 +30,12 @@ module.exports = {
         },
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']//指定扩展名 
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
     },
     module: {
         rules: [
             {
-                test: /\.(j|t)sx?$/,//配置如何加载js ts jsx tsx
+                test: /\.(j|t)sx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
             },
@@ -44,13 +44,13 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
-                        loader: 'css-loader',//处理@import和url
+                        loader: 'css-loader',
                         options: {
                             sourceMap: true,
                         },
                     },
                     {
-                        loader: 'postcss-loader', //加厂商前缀
+                        loader: 'postcss-loader',
                         options: {
                             postcssOptions: {
                                 plugins: ['autoprefixer'],
@@ -80,7 +80,7 @@ module.exports = {
                         },
                     },
                     {
-                        loader: 'less-loader',//把less编译 成css
+                        loader: 'less-loader',
                         options: {
                             lessOptions: {
                                 javascriptEnabled: true,
@@ -90,9 +90,9 @@ module.exports = {
                     },
                 ],
             },
-            {//webpack5里file-loaer url-loader已经废弃 了
+            {
                 test: /\.(png|jpg|jpeg|gif|svg)(\?v=\d+\.\d+\.\d+)?$/i,
-                type: 'asset'//静态文件不再需要配置loader
+                type: 'asset'
             },
         ],
     },

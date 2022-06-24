@@ -247,15 +247,15 @@ module.exports = function (
   }
 
   // Remove template
-  console.log(`Removing template package using ${command}...`);
-  console.log();
+  // console.log(`Removing template package using ${command}...`);
+  // console.log();
 
-  const proc = spawn.sync(command, [remove, templateName], {
-    stdio: 'inherit',
-  });
-  if (proc.status !== 0) {
-    chalk.yellow(`\`${command} ${args.join(' ')}\` failed`)
-  }
+  // const proc = spawn.sync(command, [remove, templateName], {
+  //   stdio: 'inherit',
+  // });
+  // if (proc.status !== 0) {
+  //   chalk.yellow(`\`${command} ${args.join(' ')}\` failed`)
+  // }
 
   // Create git commit if git repo was initialized
   if (initializedGit && tryGitCommit(appPath)) {

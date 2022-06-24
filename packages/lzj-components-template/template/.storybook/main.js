@@ -1,5 +1,4 @@
 module.exports = {
-    //如何查找故事 story book
     stories: [
         "../components/Introduction.stories.mdx",
         "../components/Install.stories.mdx",
