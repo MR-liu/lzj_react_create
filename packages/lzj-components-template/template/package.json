@@ -1,6 +1,6 @@
 {
   "name": "up1-components",
-  "version": "1.1.2",
+  "version": "0.0.1",
   "description": "React组件库",
   "main": "lib/index.js",
   "module": "es/index.js",
