@@ -170,21 +170,21 @@ module.exports = function (
     }
   }
 
-  const gitignoreExists = fs.existsSync(path.join(appPath, '.gitignore'));
-  if (gitignoreExists) {
-    // Append if there's already a `.gitignore` file there
-    const data = fs.readFileSync(path.join(appPath, 'gitignore'));
-    fs.appendFileSync(path.join(appPath, '.gitignore'), data);
-    fs.unlinkSync(path.join(appPath, 'gitignore'));
-  } else {
-    // Rename gitignore after the fact to prevent npm from renaming it to .npmignore
-    // See: https://github.com/npm/npm/issues/1862
-    fs.moveSync(
-      path.join(appPath, 'gitignore'),
-      path.join(appPath, '.gitignore'),
-      []
-    );
-  }
+  // const gitignoreExists = fs.existsSync(path.join(appPath, '.gitignore'));
+  // if (gitignoreExists) {
+  //   // Append if there's already a `.gitignore` file there
+  //   const data = fs.readFileSync(path.join(appPath, 'gitignore'));
+  //   fs.appendFileSync(path.join(appPath, '.gitignore'), data);
+  //   fs.unlinkSync(path.join(appPath, 'gitignore'));
+  // } else {
+  //   // Rename gitignore after the fact to prevent npm from renaming it to .npmignore
+  //   // See: https://github.com/npm/npm/issues/1862
+  //   fs.moveSync(
+  //     path.join(appPath, 'gitignore'),
+  //     path.join(appPath, '.gitignore'),
+  //     []
+  //   );
+  // }
 
   // Initialize git repo
   let initializedGit = false;
