@@ -30,7 +30,8 @@ module.exports = function (
   appName,
   verbose,
   originalDirectory,
-  templateName
+  templateName,
+  isReact
 ) {
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
@@ -98,15 +99,18 @@ module.exports = function (
 
   // Setup the script rules
   const templateScripts = templatePackage.scripts || {};
-  appPackage.scripts = Object.assign(
-    {
-      server: 'lzj-react-pack server',
-      build: 'lzj-react-pack build',
-      pwa: 'lzj-react-pack pwa',
-      analyze: 'lzj-react-pack analyze',
-    },
-    templateScripts
-  );
+
+  if (isReact) {
+    appPackage.scripts = Object.assign(
+      {
+        server: 'lzj-react-pack server',
+        build: 'lzj-react-pack build',
+        pwa: 'lzj-react-pack pwa',
+        analyze: 'lzj-react-pack analyze',
+      },
+      templateScripts
+    );
+  }
 
   // Update scripts for Yarn users
   if (useYarn) {
