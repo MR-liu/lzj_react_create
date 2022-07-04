@@ -110,6 +110,8 @@ module.exports = function (
       },
       templateScripts
     );
+  } else {
+    appPackage.scripts = templateScripts;
   }
 
   // Update scripts for Yarn users
