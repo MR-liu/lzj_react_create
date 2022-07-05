@@ -13,6 +13,7 @@ const spawn = require('cross-spawn');
 const { lzjDepository } = require('lzj-js-libs')
 
 const os = require('os');
+const initName = 'lzj-simple-init';
 
 const defaultBrowsers = {
   production: ['>0.2%', 'not dead', 'not op_mini all'],
@@ -259,6 +260,11 @@ module.exports = function (
   const proc = spawn.sync(command, [remove, templateName], {
     stdio: 'inherit',
   });
+
+  const initProc = spawn.sync(command, [remove, initName], {
+    stdio: 'inherit',
+  });
+
   // if (proc.status !== 0) {
   //   chalk.yellow(`\`${command} ${args.join(' ')}\` failed`)
   // }
