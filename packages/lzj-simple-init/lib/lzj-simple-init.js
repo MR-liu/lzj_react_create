@@ -301,7 +301,11 @@ module.exports = function (
   console.log('We suggest that you begin by typing:');
   console.log();
   console.log(chalk.cyan('  cd'), cdpath);
-  console.log(`  ${chalk.cyan(`${displayedCommand} ${keys.join(",")}`)}`);
+
+  if (keys.length) {
+    console.log(`  ${chalk.cyan(`${displayedCommand} ${keys.join(",")}`)}`);
+  }
+
   console.log();
   console.log('Happy hacking!');
 };
