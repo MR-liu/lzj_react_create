@@ -291,6 +291,8 @@ module.exports = function (
   // Change displayed command to yarn instead of yarnpkg
   const displayedCommand = useYarn ? 'yarn' : 'npm';
 
+  const keys = Object.keys(appPackage.scripts);
+
   console.log();
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log();
@@ -299,7 +301,7 @@ module.exports = function (
   console.log('We suggest that you begin by typing:');
   console.log();
   console.log(chalk.cyan('  cd'), cdpath);
-  console.log(`  ${chalk.cyan(`${displayedCommand} build`)}`);
+  console.log(`  ${chalk.cyan(`${displayedCommand} ${keys.join(",")}`)}`);
   console.log();
   console.log('Happy hacking!');
 };
