@@ -257,9 +257,12 @@ module.exports = function (
   console.log(`Removing template package using ${command}...`);
   console.log();
 
+  console.log('loading ...')
   const proc = spawn.sync(command, [remove, templateName], {
     stdio: 'inherit',
   });
+
+  console.log('wait minutes ...')
 
   const initProc = spawn.sync(command, [remove, initName], {
     stdio: 'inherit',
