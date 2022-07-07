@@ -258,13 +258,13 @@ module.exports = function (
   console.log();
 
   console.log('loading ...')
-  const proc = spawn.sync(command, [remove, templateName], {
+  spawn(command, [remove, templateName], {
     stdio: 'inherit',
   });
 
   console.log('wait minutes ...')
 
-  const initProc = spawn.sync(command, [remove, initName], {
+  spawn(command, [remove, initName], {
     stdio: 'inherit',
   });
 
